@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Highlight
-// @namespace    http://tampermonkey.net/
+// @namespace    stackuserflow
 // @version      0.1
 // @description  highlight new posts
 // @author       Guilherme Nascimento
