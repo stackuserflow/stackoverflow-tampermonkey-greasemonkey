@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ChatFullName
-// @namespace    http://tampermonkey.net/
+// @namespace    stackuserflow
 // @version      0.1
 // @description  Mostra o nome completo nos chats da rede Stack Exchange
 // @author       Guilherme Nascimento
