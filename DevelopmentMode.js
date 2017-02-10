@@ -11,23 +11,35 @@
 
 (function(doc) {
     'use strict';
-    
+
     var dmlabel = 'Desenvolvimento'; //Label que aparece no <title> e no div no rodapé
 
     function trigger() {
         var s = doc.createElement("style");
-        s.textContent = '.development-mode-label {' +
+        s.textContent = '' +
+                        '@keyframes dropHeader {' +
+                        '    0% {' +
+                        '        bottom: 50%;' +
+                        '    }' +
+                        '    100% {' +
+                        '        bottom: 10px;' +
+                        '    }' +
+                        '}' +
+                        '.development-mode-label {' +
                         '     pointer-events: none;' + //Permite o mouse ultrapassar o div
                         '     position: fixed;' +
-                        '     bottom: 10px;' +
                         '     right: 10px;' +
                         '     padding: 10px;' +
                         '     border-radius: 4px;' +
-                        '     background-color: rgba(0,0,0,0.8);' +
+                        '     background-color: rgba(0,0,0,0.6);' +
                         '     color: #fff;' +
+                        '     animation-name: dropHeader;' +
+                        '     animation-iteration-count: 1;' +
+                        '     animation-timing-function: ease-out;' +
+                        '     animation-duration: 0.8s;' +
                         '} ' +
-                        '.development-mode-label:hover {' +
-                        '     opacity: 0.02;' + //Oculta a DIV
+                        '.development-mode-enter {' +
+                        '     bottom: 10px;' +
                         '}';
 
         doc.head.appendChild(s);
@@ -38,6 +50,10 @@
         doc.body.appendChild(d);
 
         document.title = "[" + dmlabel + "] " + document.title;
+
+        setTimeout(function() {
+            d.className = "development-mode-label development-mode-enter";
+        }, 100);
     }
 
     if (/^(interactive|complete)$/i.test(doc.readyState)) {
