@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         DevelopmentMode
-// @namespace    http://tampermonkey.net/
+// @namespace    stackuserflow
 // @version      0.1
 // @description  Ajuda a detectar se esta em que ambiente esta
 // @author       Guilherme Nascimento
