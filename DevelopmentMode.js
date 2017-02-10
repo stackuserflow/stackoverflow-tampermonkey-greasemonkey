@@ -16,7 +16,7 @@
 
     function trigger() {
         var s = doc.createElement("style");
-        s.textContent = '.ux-homologation {' +
+        s.textContent = '.development-mode-label {' +
                         '     pointer-events: none;' + //Permite o mouse ultrapassar o div
                         '     position: fixed;' +
                         '     bottom: 10px;' +
@@ -26,14 +26,14 @@
                         '     background-color: rgba(0,0,0,0.8);' +
                         '     color: #fff;' +
                         '} ' +
-                        '.ux-homologation:hover {' +
+                        '.development-mode-label:hover {' +
                         '     opacity: 0.02;' + //Oculta a DIV
                         '}';
 
         doc.head.appendChild(s);
 
         var d = doc.createElement("div");
-        d.className = "ux-homologation";
+        d.className = "development-mode-label";
         d.textContent = Label;
         doc.body.appendChild(d);
 
