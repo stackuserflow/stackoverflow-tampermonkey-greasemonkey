@@ -34,7 +34,7 @@
 
         var d = doc.createElement("div");
         d.className = "development-mode-label";
-        d.textContent = Label;
+        d.textContent = dmlabel;
         doc.body.appendChild(d);
 
         document.title = "[" + dmlabel + "] " + document.title;
