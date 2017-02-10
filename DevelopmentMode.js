@@ -11,6 +11,8 @@
 
 (function(doc) {
     'use strict';
+    
+    var dmlabel = 'Desenvolvimento'; //Label que aparece no <title> e no div no rodapé
 
     function trigger() {
         var s = doc.createElement("style");
@@ -32,10 +34,10 @@
 
         var d = doc.createElement("div");
         d.className = "ux-homologation";
-        d.textContent = "Homologação";
+        d.textContent = Label;
         doc.body.appendChild(d);
 
-        document.title = "[Homologação] " + document.title;
+        document.title = "[" + dmlabel + "] " + document.title;
     }
 
     if (/^(interactive|complete)$/i.test(doc.readyState)) {
