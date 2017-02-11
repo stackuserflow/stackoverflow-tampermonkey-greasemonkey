@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         ChatFullName
 // @namespace    stackuserflow
-// @version      0.1
+// @version      0.1.2
 // @description  Mostra o nome completo nos chats da rede Stack Exchange
 // @author       Guilherme Nascimento
-// @match        http://chat.stackoverflow.com/*
+// @match        *://chat.stackoverflow.com/*
+// @match        *://chat.stackexchange.com/*
 // @grant        none
 // ==/UserScript==
 
