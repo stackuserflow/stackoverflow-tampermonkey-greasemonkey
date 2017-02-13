@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Highlight
 // @namespace    stackuserflow
-// @version      0.1.1
+// @version      0.1.2
 // @description  highlight new posts
 // @author       Guilherme Nascimento
 // @match        *://stackapps.com/*
