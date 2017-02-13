@@ -20,6 +20,7 @@
 // @match        *://mathoverflow.com/*
 // @match        *://*.mathoverflow.net/*
 // @match        *://*.mathoverflow.com/*
+// @exclude      *://chat.*
 // @grant        none
 // ==/UserScript==
 
