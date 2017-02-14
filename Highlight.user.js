@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Highlight
 // @namespace    stackuserflow
-// @version      0.1.2
+// @version      0.1.3
 // @description  highlight new posts
 // @author       Guilherme Nascimento
 // @match        *://stackapps.com/*
@@ -9,7 +9,6 @@
 // @match        *://superuser.com/*
 // @match        *://serverfault.com/*
 // @match        *://stackoverflow.com/*
-// @match        *://stackexchange.com/*
 // @match        *://*.stackapps.com/*
 // @match        *://*.askubuntu.com/*
 // @match        *://*.superuser.com/*
