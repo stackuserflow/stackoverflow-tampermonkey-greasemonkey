@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatFullName
 // @namespace    stackuserflow
-// @version      0.1.2
+// @version      0.1.4
 // @description  Mostra o nome completo nos chats da rede Stack Exchange
 // @author       Guilherme Nascimento
 // @match        *://chat.stackoverflow.com/*
@@ -23,7 +23,7 @@
     ready(function() {
         var s = document.createElement("style");
         s.textContent = ".monologue .tiny-signature .username {" +
-                        "clear: both !important; overflow: visible !important;" +
+                        "clear: both !important; overflow: visible !important; height: auto; min-height: 12px;" +
                         "}";
 
         document.head.appendChild(s);
