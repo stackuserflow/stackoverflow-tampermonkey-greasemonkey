@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CleanChat
 // @namespace    stackuserflow
-// @version      0.1
+// @version      0.1.1
 // @description  Muda o visual do chat para algo mais simples
 // @author       Guilherme Nascimento
 // @match        *://chat.stackoverflow.com/rooms/*
@@ -145,6 +145,10 @@ var custom = 'body { \
     overflow: visible !important; \
     height: auto !important; \
     min-height: 12px !important; \
+} \
+#footer-logo { \
+    background: #f48024; \
+    border-radius: 2px; \
 }';
 
     function trigger()
