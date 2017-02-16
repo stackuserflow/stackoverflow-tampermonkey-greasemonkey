@@ -1,0 +1,136 @@
+body {  
+    background: #f4f8fb !important;  
+}  
+ 
+.monologue .messages {  
+    padding: 15px 0 !important;  
+    border-radius: 4px !important;  
+    position: relative !important;  
+    background: #fff !important;  
+    border: 1px solid #e1e1e1 !important;  
+}  
+ 
+.monologue {  
+    margin-bottom: 15px !important;  
+    position: relative !important;  
+}  
+.monologue .messages:after, .monologue .messages:before {  
+    right: 100% !important;  
+    top: 15px !important;  
+    border: solid transparent !important;  
+    content: " " !important;  
+    height: 0 !important;  
+    width: 0 !important;  
+    position: absolute !important;  
+    pointer-events: none !important;  
+}  
+ 
+.monologue .messages:after {  
+    border-color: rgba(227, 248, 255, 0) !important;  
+    border-right-color: #fff !important;  
+    border-width: 5px !important;  
+    margin-top: -5px !important;  
+}  
+.monologue .messages:before {  
+    border-color: rgba(208, 234, 243, 0) !important;  
+    border-right-color: #e1e1e1 !important;  
+    border-width: 6px !important;  
+    margin-top: -6px !important;  
+}  
+ 
+ 
+.mine .signature {  
+   float: right !important;  
+   text-align: left !important;  
+}  
+ 
+.mine .tiny-signature .avatar {  
+   float: left !important;  
+   margin: 0 !important;  
+}  
+ 
+.mine .messages {  
+    background: #beebff !important;  
+    border-color: #b0dae8 !important;  
+}  
+ 
+.mine .messages:after {  
+    border-color: rgba(227, 248, 255, 0) !important;  
+    border-left-color: #beebff !important;  
+}  
+.mine .messages:before {  
+    border-color: rgba(208, 234, 243, 0) !important;  
+    border-left-color: #b0dae8 !important;  
+}  
+ 
+.mine .messages:after {  
+    right: -10px !important;  
+}  
+ 
+.mine .messages:before {  
+    right: -12px !important;  
+}  
+.button {  
+    background: #5fba7d !important;  
+    text-shadow: none !important;  
+    box-shadow: none !important;  
+    padding: 5px 12px !important;  
+    border-radius: 10px !important;  
+    border: none !important;  
+}  
+#input-table td.chat-input {  
+    width: 398px !important;  
+}  
+#input {  
+    padding: 2px !important;  
+    width: 406px !important;  
+    background: transparent !important;  
+    border-color: transparent !important;  
+    outline: none !important;  
+    border: none !important;  
+    resize: none !important;  
+    -webkit-box-shadow: 0 -2px 0 #c0c0c0 !important;  
+            box-shadow: 0 -2px 0 #c0c0c0 inset !important;  
+    transition: all .5s !important;  
+}  
+#input:focus {  
+    -webkit-box-shadow: 0 -3px 0 #5fba7d !important;  
+            box-shadow: 0 -3px 0 #5fba7d inset !important;  
+}  
+#input-area {  
+    width: 72% !important;  
+    background: #fdfdfb !important;  
+    border-top: 1px #d8d1d1 solid !important;  
+    z-index: 6 !important;  
+    box-shadow: 0 0 55px rgba(0,0,0,.13);  
+}  
+#input-table {  
+    width: 98% !important;  
+}  
+#sidebar {  
+    background: #fdfdfb !important;  
+    border-left: 1px #d8d1d1 solid !important;  
+    z-index: 7 !important;  
+    padding-right: 0 !important;  
+}  
+#input-area a {  
+    color: #4a825c !important;  
+}  
+ 
+.avatar img {  
+    border-radius: 4px !important;  
+}  
+ 
+#present-users > .present-user {  
+    margin: 0 2px 2px 0 !important;  
+}  
+.monologue .tiny-signature .username {  
+    clear: both !important;  
+    overflow: visible !important;  
+    height: auto !important;  
+    min-height: 12px !important;  
+}  
+#footer-logo {  
+    background: #f48024;  
+    border-radius: 2px;  
+}
