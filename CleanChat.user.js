@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CleanChat
 // @namespace    stackuserflow
-// @version      0.1.1
+// @version      0.1.2
 // @description  Muda o visual do chat para algo mais simples
 // @author       Guilherme Nascimento
 // @match        *://chat.stackoverflow.com/rooms/*
@@ -15,11 +15,15 @@
     'use strict';
 
 var custom = 'body { \
-    background: #f4f8fb !important; \
+    background: #f2f2f3 !important; \
+} \
+\
+#container { \
+    padding: 10px !important; \
 } \
 \
 .monologue .messages { \
-    padding: 15px 0 !important; \
+    padding: 15px 5px !important; \
     border-radius: 4px !important; \
     position: relative !important; \
     background: #fff !important; \
@@ -27,6 +31,7 @@ var custom = 'body { \
 } \
 \
 .monologue { \
+    margin-right: 13% !important; \
     margin-bottom: 15px !important; \
     position: relative !important; \
 } \
@@ -54,10 +59,15 @@ var custom = 'body { \
     margin-top: -6px !important; \
 } \
 \
+.mine { \
+    margin-left: 13% !important; \
+    margin-right: 0 !important; \
+} \
 \
 .mine .signature { \
    float: right !important; \
    text-align: left !important; \
+   margin-right: 0 !important; \
 } \
 \
 .mine .tiny-signature .avatar { \
@@ -91,7 +101,7 @@ var custom = 'body { \
     text-shadow: none !important; \
     box-shadow: none !important; \
     padding: 5px 12px !important; \
-    border-radius: 10px !important; \
+    border-radius: 3px !important; \
     border: none !important; \
 } \
 #input-table td.chat-input { \
@@ -118,7 +128,7 @@ var custom = 'body { \
     background: #fdfdfb !important; \
     border-top: 1px #d8d1d1 solid !important; \
     z-index: 6 !important; \
-    box-shadow: 0 0 55px rgba(0,0,0,.13); \
+    box-shadow: 0 0 55px rgba(0,0,0,.13) !important; \
 } \
 #input-table { \
     width: 98% !important; \
@@ -139,6 +149,7 @@ var custom = 'body { \
 \
 #present-users > .present-user { \
     margin: 0 2px 2px 0 !important; \
+    height: auto !important; \
 } \
 .monologue .tiny-signature .username { \
     clear: both !important; \
@@ -147,8 +158,12 @@ var custom = 'body { \
     min-height: 12px !important; \
 } \
 #footer-logo { \
-    background: #f48024; \
-    border-radius: 2px; \
+    background: #f4f2f2 !important; \
+    border-radius: 2px !important; \
+} \
+#sidebar #info #roomtitle { \
+    text-shadow: none !important; \
+    text-align: center !important; \
 }';
 
     function trigger()
