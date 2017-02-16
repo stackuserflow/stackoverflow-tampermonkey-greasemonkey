@@ -105,8 +105,8 @@ var custom = 'body { \
     outline: none !important; \
     border: none !important; \
     resize: none !important; \
-    -webkit-box-shadow: 0 -1px 0 #c0c0c0 !important; \
-            box-shadow: 0 -1px 0 #c0c0c0 inset !important; \
+    -webkit-box-shadow: 0 -2px 0 #c0c0c0 !important; \
+            box-shadow: 0 -2px 0 #c0c0c0 inset !important; \
     transition: all .5s !important; \
 } \
 #input:focus { \
@@ -127,6 +127,7 @@ var custom = 'body { \
     background: #fdfdfb !important; \
     border-left: 1px #d8d1d1 solid !important; \
     z-index: 7 !important; \
+    padding-right: 0 !important; \
 } \
 #input-area a { \
     color: #4a825c !important; \
@@ -138,6 +139,12 @@ var custom = 'body { \
 \
 #present-users > .present-user { \
     margin: 0 2px 2px 0 !important; \
+} \
+.monologue .tiny-signature .username { \
+    clear: both !important; \
+    overflow: visible !important; \
+    height: auto !important; \
+    min-height: 12px !important; \
 }';
 
     function trigger()
