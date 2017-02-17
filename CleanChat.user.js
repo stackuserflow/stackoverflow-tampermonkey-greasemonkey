@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CleanChat
 // @namespace    stackuserflow
-// @version      0.1.3
+// @version      0.1.4
 // @description  Muda o visual do chat para algo mais simples
 // @author       Guilherme Nascimento
 // @match        *://chat.stackoverflow.com/rooms/*
@@ -38,6 +38,11 @@ body * { \
     margin: 25px 20% 35px 5% !important; \
 } \
 \
+.system-message-container .system-message { \
+    text-align: center !important; \
+    padding: 15px 10px 15px 20px !important; \
+    color: #6b5656 !important; \
+} \
 #container { \
     padding: 10px !important; \
 } \
