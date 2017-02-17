@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CleanChat
 // @namespace    stackuserflow
-// @version      0.1.2
+// @version      0.1.3
 // @description  Muda o visual do chat para algo mais simples
 // @author       Guilherme Nascimento
 // @match        *://chat.stackoverflow.com/rooms/*
@@ -16,6 +16,26 @@
 
 var custom = 'body { \
     background: #f2f2f3 !important; \
+} \
+body * { \
+    box-sizing: border-box; \
+} \
+#tabcomplete li, \
+#reply-count, #flag-count, #modflag-count, .reply-count, #annotation-count { \
+    box-sizing: content-box; \
+} \
+.monologue.catchup-marker, .monologue.catchup-marker-1 { \
+    border: none !important; \
+} \
+.monologue.catchup-marker-1::before { \
+    content: " " !important; \
+    border-top: 1px #ccc dotted; !important; \
+    padding: 1px 0; !important; \
+    display: block !important; \
+    margin: 25px 5% 35px 20% !important; \
+} \
+.mine.catchup-marker-1::before { \
+    margin: 25px 20% 35px 5% !important; \
 } \
 \
 #container { \
