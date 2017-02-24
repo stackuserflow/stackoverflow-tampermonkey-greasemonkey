@@ -31,7 +31,7 @@
             doc.body.appendChild(div);
 
             // ADD STYLE
-            var style = doc.createElement('style');
+            var style = doc.createElement('link');
             style.rel ="stylesheet";
             style.type ="text/css";
             style.href=styleUrl;
