@@ -17,6 +17,7 @@
 
     var init = function(){
         this.div = null;
+        this.textarea = null;
         this.lastUserReport = null;
         this.head = doc.getElementsByTagName('head')[0];
         this.body = doc.getElementsByTagName('body')[0];
@@ -50,11 +51,12 @@
             var img = doc.createElement('img');
             img.src = avatar;
             var span = doc.createElement('span');
+            span.innerText = userName;
 
             li.appendChild(img);
             li.appendChild(span);
 
-            this.div.appendChild(li);
+            $(this.div).find('ul')[0].appendChild(li);
 
             this.lastUserReport = userName;
         },
@@ -64,33 +66,40 @@
         },
         checkBox : function(){
 
-            var text = $('.chat-input textarea#input').val();
+            var text = this.textarea;
             var matchs = text.match(/@([a-z]+)/ig);
 
             for(var i in matchs){
                 var match = matchs[i];
                 var name = match.substr(1).replace(/([A-Z])/g, ' $1').trim();
 
-                var userId = $('.user-container.monologue').find('.username:contains('+name+')');
+                var userId = $('#present-users').find('li[class*="user-"] img[title="'+name+'"]');
                 if(userId.length > 0){
-                    userId = parseInt(userId.parents('a.signature').attr('class').replace(/\D/g, ''));
+                    userId = parseInt(userId.parents('li').attr('id').replace(/\D/g, ''));
                 }
 
                 if(typeof userId == 'number'){
                     this.addUser(name, userId);
                 }
             }
+
+            this.textarea = null;
         },
-        addLastUserToBox : function(){
+        addUserToBox : function(userName){
             var text = $('.chat-input textarea#input');
             var content = text.val();
-            content += ('@'+this.lastUserReport.replace(/ /g, ''));
+            content += ('@'+userName.replace(/ /g, ''));
             text.val(content);
+            this.hideDiv();
+        },
+        addLastUserToBox : function(){
+            this.addUserToBox(this.lastUserReport);
         },
         showDiv : function(x, y){
             if(this.div && $(this.div).find('li').size()>0){
-                this.div.style.top = y - parseInt(this.div.offsetHeight);
-                this.div.style.left = x;// - parseInt(this.div.offsetWidth);
+                this.div.style.top = (y - parseInt(this.div.offsetHeight))+'px';
+                this.div.style.left = x+'px';// - parseInt(this.div.offsetWidth);
+                this.div.style.zIndex = 10000;
                 this.div.style.visibility = 'visible';
             }
         },
@@ -103,29 +112,45 @@
         }        
     }
 
+    var ctrl = false;
     win.onload = function(){
         var newInit = new init();
         newInit.init();
 
-        $('.chat-input').on('keydown', 'textarea#input', function(e){
-            if(e.keyCode == 13){
-                newInit.checkBox();
+        $('.chat-input').on('keydown keyup', 'textarea#input', function(e){
+            if(e.type == 'keydown'){
+                if(e.keyCode == 13){
+                    newInit.checkBox();
+                }else{
+                    newInit.textarea = $(this).val();
+                }
             }
+            ctrl = e.keyCode == 17 && e.type == 'keydown';
         });
 
         $('#chat-buttons').on('click', '#sayit-button', function(e){
             newInit.checkBox();
         });
 
-        $('.chat-input').on('mousedown', 'textarea#input', function(e){
-            var x = e.clientX;
-            var y = e.clientY;
-            newInit.showDiv(x, y);
-        });
-
         $('.chat-input').on('dblclick', 'textarea#input', function(e){
-            newInit.addLastUserToBox();
+            if(ctrl){
+                var x = e.clientX;
+                var y = e.clientY;
+                newInit.showDiv(x, y);
+            }else{
+                newInit.addLastUserToBox();
+            }
         });
 
+        $(newInit.div).on('click', 'ul li', function(e){
+            var userName = $(this).find('span').text();
+            newInit.addUserToBox(userName);
+        });
+
+        $(window).on('keydown', function(e){
+            if(e.keyCode == 27){
+                newInit.hideDiv();
+            }
+        });
     }
 }(document, window, jQuery))
