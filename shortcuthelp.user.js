@@ -11,13 +11,15 @@
 // @grant       none
 // ==/UserScript==
 
-(function(doc, $){
+(function(doc, win, $){
 
-    var styleUrl = 'https://raw.githubusercontent.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/master/assets/sch.css';
+    var styleUrl = 'https://rawgit.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/master/assets/sch.css';
 
     var init = function(){
         this.div = null;
         this.lastUserReport = null;
+        this.head = doc.getElementsByTagName('head')[0];
+        this.body = doc.getElementsByTagName('body')[0];
     }
 
     init.prototype = {
@@ -28,7 +30,7 @@
             div.className = 'sch content_menu';
             var ul = doc.createElement('ul');
             div.appendChild(ul);
-            doc.body.appendChild(div);
+            this.body.appendChild(div);
 
             // ADD STYLE
             var style = doc.createElement('link');
@@ -36,7 +38,7 @@
             style.type ="text/css";
             style.href=styleUrl;
 
-            doc.head.appendChild(style);
+            this.head.appendChild(style);
 
             this.div = div;
         },
@@ -84,20 +86,46 @@
             var content = text.val();
             content += ('@'+this.lastUserReport.replace(/ /g, ''));
             text.val(content);
-        }
+        },
+        showDiv : function(x, y){
+            if(this.div && $(this.div).find('li').size()>0){
+                this.div.style.top = y - parseInt(this.div.offsetHeight);
+                this.div.style.left = x;// - parseInt(this.div.offsetWidth);
+                this.div.style.visibility = 'visible';
+            }
+        },
+        hideDiv : function(){
+            if(this.div){
+                this.div.style.top = -1000;
+                this.div.style.left = -1000;
+                this.div.style.visibility = 'hidden';   
+            }
+        }        
     }
 
-    var newInit = new init();
-    newInit.init();
+    win.onload = function(){
+        var newInit = new init();
+        newInit.init();
 
-    $('.chat-input').on('keydown', 'textarea#input', function(e){
-        if(e.keyCode == 13){
+        $('.chat-input').on('keydown', 'textarea#input', function(e){
+            if(e.keyCode == 13){
+                newInit.checkBox();
+            }
+        });
+
+        $('#chat-buttons').on('click', '#sayit-button', function(e){
             newInit.checkBox();
-        }
-    });
+        });
 
-    $('#chat-buttons').on('click', '#sayit-button', function(e){
-        newInit.checkBox();
-    });
+        $('.chat-input').on('mousedown', 'textarea#input', function(e){
+            var x = e.clientX;
+            var y = e.clientY;
+            newInit.showDiv(x, y);
+        });
 
-}(document, jQuery))
+        $('.chat-input').on('dblclick', 'textarea#input', function(e){
+            newInit.addLastUserToBox();
+        });
+
+    }
+}(document, window, jQuery))

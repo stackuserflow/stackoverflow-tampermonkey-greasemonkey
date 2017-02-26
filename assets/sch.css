@@ -12,8 +12,10 @@
 	border: solid 2px #DDD;
 	background: #FAFAFA;
 	overflow-y: auto; 
-	display: none;
+	visibility: hidden;
 	position: fixed;
+	top:-1000;
+	left:-1000;
 }
 .sch.content_menu>ul{
 	list-style: none;
