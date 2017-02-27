@@ -44,9 +44,15 @@
 
             this.div = div;
         },
+        getUserAvatar : function (userId){
+            var li = $('#present-users').find('li[class*="user-'+userId+'"]');
+            if(li.length>0){
+                return li.find('div.avatar img').attr('src');
+            }else{
+                return null;
+            }
+        },
         addUser : function(userName, userId){
-
-            console.log('Do action addUser');
 
             var name = userName;
             var avatar = this.getUserAvatar(userId);
@@ -91,17 +97,7 @@
                 $(this.div).find('ul')[0].appendChild(li);
             }
         },
-        getUserAvatar : function (userId){
-            var li = $('#present-users').find('li[class*="user-'+userId+'"]');
-            if(li.length>0){
-                return li.find('div.avatar img').attr('src');
-            }else{
-                return null;
-            }
-        },
         checkBox : function(){
-
-            console.log('Do action CheckBox');
 
             var text = this.textarea;
             var matchs = text.match(/@([a-z]+)/ig);
@@ -116,13 +112,12 @@
                 });
 
                 if(userId.length == 0){
-                    return;
+                    userId = null;
+                }else{
+                    userId = parseInt(userId.parents('li').attr('id').replace(/\D/g, ''));
                 }
 
-                userId = parseInt(userId.parents('li').attr('id').replace(/\D/g, ''));
-                if(typeof userId == 'number'){
-                    this.addUser(name, userId);
-                }
+                this.addUser(name, userId);
             }
 
             this.textarea = null;
@@ -217,5 +212,5 @@
 
 // var script = document.createElement('script');
 // script.type="text/javascript";
-// script.src = 'https://rawgit.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/master/shortcuthelp.user.js';
+// script.src = 'https://rawgit.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/master/shortcuthelp.user.js?v='+new Date();
 // document.head.appendChild(script);
