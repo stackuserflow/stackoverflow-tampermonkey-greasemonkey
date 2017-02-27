@@ -45,18 +45,23 @@
             this.div = div;
         },
         addUser : function(userName, userId){
+
+            console.log('Do action addUser');
+
             var name = userName;
+            var avatar = this.getUserAvatar(userId);
 
             if(typeof userList[name] == 'undefined'){
                 userList[name] = {
                     id : userId,
                     name : userName,
-                    avatar : this.getUserAvatar(userId),
                     count : 1,
                 };
             }else{
                 userList[name].count++;
             }
+
+            userList[name].avatar = avatar;
 
             this.lastUserReport = userName;
         },
@@ -74,7 +79,9 @@
 
                 var li = doc.createElement('li');
                 var img = doc.createElement('img');
-                img.src = current.avatar;
+                if(current.avatar){
+                    img.src = current.avatar;
+                }
                 var span = doc.createElement('span');
                 span.innerText = current.name;
 
@@ -86,9 +93,15 @@
         },
         getUserAvatar : function (userId){
             var li = $('#present-users').find('li[class*="user-'+userId+'"]');
-            return li.find('div.avatar img').attr('src');
+            if(li.length>0){
+                return li.find('div.avatar img').attr('src');
+            }else{
+                return null;
+            }
         },
         checkBox : function(){
+
+            console.log('Do action CheckBox');
 
             var text = this.textarea;
             var matchs = text.match(/@([a-z]+)/ig);
@@ -144,7 +157,12 @@
         }        
     }
 
-    win.onload = function(){
+    var isLoaded = false;
+    var load = function(){
+
+        if(isLoaded) return;
+
+        isLoaded = true;
 
         var ctrl = false;
         var alt = false;
@@ -186,4 +204,18 @@
             newInit.addUserToBox(userName);
         });
     }
-}(document, window, jQuery))
+
+    win.onload = function(){
+        load();
+    }
+
+    setTimeout(function(){
+        load();
+    }, 1000);
+
+}(document, window, jQuery));
+
+// var script = document.createElement('script');
+// script.type="text/javascript";
+// script.src = 'https://rawgit.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/master/shortcuthelp.user.js';
+// document.head.appendChild(script);
