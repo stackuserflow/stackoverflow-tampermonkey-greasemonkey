@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CleanChat
 // @namespace    stackuserflow
-// @version      0.1.5
+// @version      0.1.6
 // @description  Muda o visual do chat para algo mais simples
 // @author       Guilherme Nascimento
 // @match        *://chat.stackoverflow.com/rooms/*
@@ -48,14 +48,14 @@ body * {
     padding: 10px !important;
 }
 .monologue .messages {
-    padding: 15px 5px !important;
+    padding: 15px 23px 15px 5px !important;
     border-radius: 4px !important;
     position: relative !important;
     background: #fff !important;
     border: 1px solid #e1e1e1 !important;
 }
 .monologue {
-    margin-right: 13% !important;
+    margin-right: 12% !important;
     margin-bottom: 15px !important;
     position: relative !important;
 }
@@ -82,7 +82,7 @@ body * {
     margin-top: -6px !important;
 }
 .mine {
-    margin-left: 13% !important;
+    margin-left: 12% !important;
     margin-right: 0 !important;
 }
 .mine .signature {
@@ -131,8 +131,8 @@ body * {
     outline: none !important;
     border: none !important;
     resize: none !important;
-    -webkit-box-shadow: 0 -2px 0 #c0c0c0 !important;
-            box-shadow: 0 -2px 0 #c0c0c0 inset !important;
+    -webkit-box-shadow: 0 -1px 0 #a0a0a0 !important;
+            box-shadow: 0 -1px 0 #a0a0a0 inset !important;
     transition: all .5s !important;
 }
 #input:focus {
