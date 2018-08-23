@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Highlight
 // @namespace    stackuserflow
-// @version      0.1.3
+// @version      0.1.4
 // @description  highlight new posts
-// @author       Guilherme Nascimento
+// @author       Guilherme Nascimento (https://github.com/brcontainer)
 // @match        *://stackapps.com/*
 // @match        *://askubuntu.com/*
 // @match        *://superuser.com/*
@@ -23,23 +23,24 @@
 // @grant        none
 // ==/UserScript==
 
-(function(doc) {
+(function (d) {
     'use strict';
 
     var bgColor = '#e1e1f1'; //Troque pela cor desejada
 
-    function trigger() {
-        var s = doc.createElement("style");
-        s.textContent = '.tagged-interesting {' +
-                        '     background-color: ' + bgColor + ' !important;' +
-                        '}';
+    function trigger()
+    {
+        var s = d.createElement('style');
+        s.textContent = `.tagged-interesting {
+            background-color: ${bgColor} !important;
+        };`
 
-        doc.head.appendChild(s);
+        d.head.appendChild(s);
     }
 
-    if (/^(interactive|complete)$/i.test(doc.readyState)) {
+    if (/^(interactive|complete)$/i.test(d.readyState)) {
         trigger();
     } else {
-        doc.addEventListener('DOMContentLoaded', trigger);
+        d.addEventListener('DOMContentLoaded', trigger);
     }
 })(document);

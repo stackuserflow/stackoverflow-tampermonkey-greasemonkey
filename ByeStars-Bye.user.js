@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name        Bye Stars, Bye!
 // @namespace    stackuserflow
-// @version      0.0.1
+// @version      0.1.0
 // @description  Fazendo um mundo melhor
-// @author       Guilherme Nascimento
+// @author       Guilherme Nascimento (https://github.com/brcontainer)
 // @match        *://chat.stackoverflow.com/rooms/*
 // @match        *://chat.stackexchange.com/rooms/*
 // @exclude      *://chat.stackoverflow.com/rooms/info/*
@@ -11,11 +11,12 @@
 // @grant        none
 // ==/UserScript==
 
-(function(doc, win) {
+(function (d) {
     'use strict';
 
-    function ByeStarBye(c) {
-        if (c.tagName === "LI" && c.querySelector(".owner-star")) {
+    function ByeStarBye(c)
+    {
+        if (c.tagName === 'LI' && c.querySelector('.owner-star')) {
             if (!c.classList.contains('byestar-bye')) {
                 c.classList.add('byestar-bye');
             }
@@ -26,21 +27,21 @@
 
     function loadCss()
     {
-        var style = doc.createElement("style");
+        var style = d.createElement('style');
 
-        style.type = "text/css";
-        style.textContent = ".byestar-bye { display: none !important; }";
+        style.type = 'text/css';
+        style.textContent = '.byestar-bye { display: none !important; }';
 
-        doc.body.appendChild(style);
+        d.head.appendChild(style);
     }
 
     function trigger()
     {
         loadCss();
 
-        var inUpdate, target = doc.querySelector("#starred-posts ul");
+        var inUpdate, target = d.querySelector('#starred-posts ul');
 
-        var lis = target.querySelectorAll("li");
+        var lis = target.querySelectorAll('li');
 
         for (var i = lis.length - 1; i >= 0; i--) {
             ByeStarBye(lis[i]);
@@ -57,18 +58,17 @@
             });
 
             inUpdate = false;
-
         });
 
         observer.observe(target, {
-            "attributes": true,
-            "subtree": true
+            'attributes': true,
+            'subtree': true
         });
     }
 
-    if (/^(interactive|complete)$/i.test(doc.readyState)) {
+    if (/^(interactive|complete)$/i.test(d.readyState)) {
         trigger();
     } else {
-        doc.addEventListener('DOMContentLoaded', trigger);
+        d.addEventListener('DOMContentLoaded', trigger);
     }
-})(document, window);
+})(document);
