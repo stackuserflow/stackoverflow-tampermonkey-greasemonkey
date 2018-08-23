@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Highlight
 // @namespace    stackuserflow
-// @version      0.1.4
+// @version      0.1.5
 // @description  highlight new posts
 // @author       Guilherme Nascimento (https://github.com/brcontainer)
 // @match        *://stackapps.com/*
@@ -20,6 +20,8 @@
 // @match        *://*.mathoverflow.net/*
 // @match        *://*.mathoverflow.com/*
 // @exclude      *://chat.*
+// @downloadURL  https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/Highlight.user.js
+// @updateURL    https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/Highlight.user.js
 // @grant        none
 // ==/UserScript==
 

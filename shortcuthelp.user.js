@@ -1,13 +1,15 @@
 // ==UserScript==
 // @name        ShortCutHelp
 // @namespace   stackuserflow
-// @version     0.0.1
+// @version     0.0.2
 // @description Adiciona um menu interativo para referenciar um usuario alem de criar um atalho para ultimo referenciado
 // @author      Guilherme Lautert
 // @match       *://chat.stackoverflow.com/rooms/*
 // @match       *://chat.stackexchange.com/rooms/*
 // @exclude     *://chat.stackoverflow.com/rooms/info/*
 // @exclude     *://chat.stackexchange.com/rooms/info/*
+// @downloadURL  https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/ShortCutHelp.user.js
+// @updateURL    https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/ShortCutHelp.user.js
 // @grant       none
 // ==/UserScript==
 
@@ -22,7 +24,7 @@
         this.lastUserReport = null;
         this.head = doc.getElementsByTagName('head')[0];
         this.body = doc.getElementsByTagName('body')[0];
-    }
+    };
 
     init.prototype = {
         init : function(){
@@ -147,10 +149,10 @@
             if(this.div){
                 this.div.style.top = -1000;
                 this.div.style.left = -1000;
-                this.div.style.visibility = 'hidden';   
+                this.div.style.visibility = 'hidden';
             }
-        }        
-    }
+        }
+    };
 
     var isLoaded = false;
     var load = function(){
@@ -186,7 +188,7 @@
             if(ctrl){
                 e.preventDefault();
                 var x = e.clientX;
-                var y = e.clientY; 
+                var y = e.clientY;
                 newInit.showDiv(x, y);
             }else{
                 e.preventDefault();
@@ -198,11 +200,11 @@
             var userName = $(this).find('span').text();
             newInit.addUserToBox(userName);
         });
-    }
+    };
 
     win.onload = function(){
         load();
-    }
+    };
 
     setTimeout(function(){
         load();

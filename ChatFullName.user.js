@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         ChatFullName
 // @namespace    stackuserflow
-// @version      0.1.5
+// @version      0.1.6
 // @description  Mostra o nome completo nos chats da rede Stack Exchange
 // @author       Guilherme Nascimento (https://github.com/brcontainer)
 // @match        *://chat.stackoverflow.com/*
 // @match        *://chat.stackexchange.com/*
+// @downloadURL  https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/ChatFullName.user.js
+// @updateURL    https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/ChatFullName.user.js
 // @grant        none
 // ==/UserScript==
 

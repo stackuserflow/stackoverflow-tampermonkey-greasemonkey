@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bye Code Of Conduct
 // @namespace    stackuserflow
-// @version      0.1.4
+// @version      0.1.5
 // @description  try to take over the world!
 // @author       Guilherme Nascimento (https://github.com/brcontainer)
 // @match        *://*.stackoverflow.com/*
@@ -13,6 +13,8 @@
 // @match        *://*.serverfault.com/*
 // @match        *://*.superuser.com/*
 // @match        *://*.stackapps.com/*
+// @downloadURL  https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/ByeCodeOfConduct.user.js
+// @updateURL    https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/ByeCodeOfConduct.user.js
 // @grant        none
 // ==/UserScript==
 

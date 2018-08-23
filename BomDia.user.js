@@ -1,13 +1,15 @@
 // ==UserScript==
 // @name         BomDia
 // @namespace    stackuserflow
-// @version      0.1.0
+// @version      0.1.1
 // @description  Bom dia ratazana
 // @author       Guilherme Nascimento (https://github.com/brcontainer)
 // @match        *://chat.stackoverflow.com/rooms/*
 // @match        *://chat.stackexchange.com/rooms/*
 // @exclude      *://chat.stackoverflow.com/rooms/info/*
 // @exclude      *://chat.stackexchange.com/rooms/info/*
+// @downloadURL  https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/BomDia.user.js
+// @updateURL    https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/BomDia.user.js
 // @grant        none
 // ==/UserScript==
 

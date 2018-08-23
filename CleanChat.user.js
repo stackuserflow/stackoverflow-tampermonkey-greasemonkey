@@ -1,13 +1,15 @@
 // ==UserScript==
 // @name         CleanChat
 // @namespace    stackuserflow
-// @version      0.1.7
+// @version      0.1.8
 // @description  Muda o visual do chat para algo mais simples
 // @author       Guilherme Nascimento (https://github.com/brcontainer)
 // @match        *://chat.stackoverflow.com/rooms/*
 // @match        *://chat.stackexchange.com/rooms/*
 // @exclude      *://chat.stackoverflow.com/rooms/info/*
 // @exclude      *://chat.stackexchange.com/rooms/info/*
+// @downloadURL  https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/CleanChat.user.js
+// @updateURL    https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/CleanChat.user.js
 // @grant        none
 // ==/UserScript==
 

@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         DevelopmentMode
 // @namespace    stackuserflow
-// @version      0.1.1
+// @version      0.1.2
 // @description  Ajuda a detectar se esta em que ambiente esta
 // @author       Guilherme Nascimento (https://github.com/brcontainer)
 // @match        *://localhost/*
 // @match        *://127.0.0.1/*
+// @downloadURL  https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/DevelopmentMode.user.js
+// @updateURL    https://github.com/stackuserflow/stackoverflow-tampermonkey-greasemonkey/raw/master/DevelopmentMode.user.js
 // @grant        none
 // ==/UserScript==
 
