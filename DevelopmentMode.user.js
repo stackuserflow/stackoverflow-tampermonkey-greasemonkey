@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         DevelopmentMode
 // @namespace    stackuserflow
-// @version      0.1.2
-// @description  Ajuda a detectar se esta em que ambiente esta
+// @version      0.1.3
+// @description  Helps web developers more easily notice whether they are in a development or production environment (based on the URL, such as localhost or 127.0.0.1)
 // @author       Guilherme Nascimento (https://github.com/brcontainer)
 // @match        *://localhost/*
 // @match        *://127.0.0.1/*
@@ -14,31 +14,25 @@
 (function (d) {
     'use strict';
 
-    var dmlabel = 'Desenvolvimento', //Label que aparece no <title> e no div no rodapé
+    var dmlabel = 'Development Mode', /* Text to show in <title> tag and label in bottom page */
         custom = `@keyframes dropHeader {
-            0% {
-                bottom: 50%;
-            }
-            100% {
-                bottom: 10px;
-            }
+            0% { bottom: 50%; }
+            100% { bottom: 10px; }
         }
 
         .development-mode-label {
-             pointer-events: none;
-             position: fixed;
-             right: 10px;
-             padding: 10px;
-             border-radius: 4px;
-             background-color: rgba(0,0,0,0.6);
-             color: #fff;
-             animation-name: dropHeader;
-             animation-iteration-count: 1;
-             animation-timing-function: ease-out;
-             animation-duration: 0.8s;
+            pointer-events: none;
+            position: fixed;
+            right: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: rgba(0,0,0,.6);
+            color: #fff;
+            animation: dropHeader 2s ease-out;
+            animation-iteration-count: 1;
         }
         .development-mode-enter {
-             bottom: 10px;
+            bottom: 10px;
         }`;
 
     function trigger()
@@ -50,7 +44,7 @@
         var e = d.createElement('div');
         e.className = 'development-mode-label';
         e.textContent = dmlabel;
-        d.head.appendChild(e);
+        d.body.appendChild(e);
 
         d.title = '[' + dmlabel + '] ' + d.title;
 
@@ -59,9 +53,9 @@
         }, 100);
     }
 
-    if (/^(interactive|complete)$/i.test(doc.readyState)) {
+    if (/^(interactive|complete)$/i.test(d.readyState)) {
         trigger();
     } else {
-        doc.addEventListener('DOMContentLoaded', trigger);
+        d.addEventListener('DOMContentLoaded', trigger);
     }
 })(document);
